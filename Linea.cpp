@@ -1,20 +1,20 @@
 #include <string>
 #include <cstddef>
-#include <list>
+#include <vector>
 
 class Linea{
 	private:
 		std::string label;
 		bool has_jump;
-		std::list <std::string> linked_labels;
+		std::vector <std::string> linked_labels;
 	public:
-		Linea(std::string label, bool has_jump, std::list <std::string> linked_labels) :
+		Linea(std::string label, bool has_jump, std::vector <std::string> linked_labels) :
 			label(label),
 			has_jump(has_jump),
 			linked_labels(linked_labels)
 		{}
 
-		std::list <std::string> get_linked_labels(){
+		std::vector <std::string> get_linked_labels(){
 			return this->linked_labels;
 		}
 
