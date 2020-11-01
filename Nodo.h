@@ -8,5 +8,7 @@ class Nodo{
 
 		void add_adyacent(Nodo other);
 
+		std::vector <Nodo> get_adyacents()
+
 		~Nodo();
 };
