@@ -2,13 +2,16 @@
 
 class Nodo{
 	std::vector <Nodo> adyacents;
+	int index;
 
 	public:
-		Nodo();
+		Nodo(int index);
 
 		void add_adyacent(Nodo other);
 
-		std::vector <Nodo> get_adyacents()
+		bool operator<(const Nodo& other) const;
+
+		std::vector <Nodo> get_adyacents();
 
 		~Nodo();
 };
