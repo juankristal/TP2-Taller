@@ -18,7 +18,6 @@ int Nodo::get_index(){
 }
 
 std::vector <Nodo*> Nodo::get_adyacents(){
-	std::cout << "Getting adyacents for " << this->index << ". It has " << this->adyacents.size() << " adyacent nodes\n";
 	return this->adyacents;
 }
 

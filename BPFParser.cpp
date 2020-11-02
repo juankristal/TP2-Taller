@@ -46,11 +46,13 @@ int find_label_end_pos(std::string &linea){
 }
 
 bool find_jump(std::string linea){
-	return linea[1] == 'j';
+	int i = linea.find_first_of(" ") ? 0 : 1;
+	return linea[i] == 'j';
 }
 
 bool find_ret(std::string linea){
-	return linea[1] == 'r';
+	int i = linea.find_first_of(" ") ? 0 : 1;
+	return linea[i] == 'r';
 }
 
 BPFParser::BPFParser(std::string fileName){
