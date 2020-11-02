@@ -64,19 +64,14 @@ void connectGrafo(std::vector<Linea> &lineas, std::map<std::string, int> &labels
 
 }
 
-Worker::Worker(std::string filename):
-	filename(filename)
-	{}
+Worker::Worker(){}
 
-int Worker::procesarArchivo(){
+int Worker::procesarArchivo(std::string filename){
 
-	BPFParser parser(this->filename);
+	BPFParser parser(filename);
 
 	std::vector<Linea> lineas = procesarLineas(parser);
 	std::map<std::string, int> labelsMap = generateLabelsMap(lineas);
-
-	std::cout << "It has this amount of lines: " << lineas.size() << "\n";
-
 
 	Grafo grafo = Grafo(lineas.size());
 	connectGrafo(lineas, labelsMap, grafo);

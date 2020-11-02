@@ -1,11 +1,10 @@
 #include <string>
 
 class Worker{
-	std::string filename;
 	public:
-		Worker(std::string filename);
+		Worker();
 
-		int procesarArchivo();
+		int procesarArchivo(std::string filename);
 
 		~Worker();
 };
