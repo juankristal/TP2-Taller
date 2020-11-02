@@ -8,7 +8,7 @@
 #define LABEL_INDICATOR ":"
 #define DELIMITER ","
 
-std::string clean_whitespaces(std::string linea){
+std::string clean_whitespaces(std::string &linea){
 	std::string::size_type pos;
 	while ((pos = linea.find("  ")) != std::string::npos)
 		linea.replace(pos, 2, " ");
@@ -40,7 +40,7 @@ void fill_linked_labels(std::string &linea, std::vector <std::string> &labels){
 	}
 }
 
-int find_label_end_pos(std::string &linea){
+int find_label_end_pos(std::string linea){
 	std::string::size_type pos = linea.find_first_of(LABEL_INDICATOR);
 	return pos != std::string::npos ? pos : -1;
 }

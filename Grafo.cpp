@@ -15,16 +15,16 @@ int dfs(Nodo &raiz, std::set <Nodo> &visited, std::set <Nodo> &path, int current
 	path.insert(raiz);
 	int status = current_status;
 
-	//std::cout << "Inserted " << raiz.get_index() << " into Path and Visited\n";
+	std::cout << "Inserted " << raiz.get_index() << " into Path and Visited\n";
 
 	std::vector <Nodo*> adyacents = raiz.get_adyacents();
 
-	//std::cout << "It has " << adyacents.size() << " adyacent nodes\n";
+	std::cout << "It has " << adyacents.size() << " adyacent nodes\n";
 
 	for (unsigned long int i = 0; i < adyacents.size(); i++){
 		Nodo adyacent = *adyacents[i];
 
-		//std::cout << "Checking adyacent " << adyacent.get_index() << "\n";
+		std::cout << "Checking adyacent " << adyacent.get_index() << "\n";
 
 		if (path.count(adyacent)) {
 			std::cout << "LOOP FOUND!!\n";
@@ -60,7 +60,7 @@ int Grafo::get_status(){
 }
 
 void Grafo::connect(int nodo1, int nodo2){
-	//std::cout << "Connecting " << nodo1 << " with " << nodo2 << "\n";
+	std::cout << "Connecting " << nodo1 << " with " << nodo2 << "\n";
 	this->nodos[nodo1].add_adyacent(this->nodos[nodo2]);
 }
 
