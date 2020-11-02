@@ -30,6 +30,7 @@ void fill_linked_labels(std::string &linea, std::vector <std::string> &labels){
 		delimiter_pos = linea.find(DELIMITER, delimiter_pos + 1);
 		amount_of_labels++;
 	}
+	if (amount_of_labels == 1) labels.push_back("NEXT");
 	if (!amount_of_labels) amount_of_labels = 1;
 
 	for (delimiter_pos = std::string::npos; amount_of_labels > 0; amount_of_labels--){

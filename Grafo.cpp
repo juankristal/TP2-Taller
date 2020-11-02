@@ -17,12 +17,12 @@ int dfs(Nodo &raiz, std::set <Nodo> &visited, std::set <Nodo> &path){
 
 	std::cout << "Inserted " << raiz.get_index() << " into Path and Visited\n";
 
-	std::vector <Nodo> adyacents = raiz.get_adyacents();
+	std::vector <Nodo*> adyacents = raiz.get_adyacents();
 
 	std::cout << "It has " << adyacents.size() << " adyacent nodes\n";
 
 	for (unsigned long int i = 0; i < adyacents.size(); i++){
-		Nodo adyacent = adyacents[i];
+		Nodo adyacent = *adyacents[i];
 
 		std::cout << "Checking adyacent " << adyacent.get_index() << "\n";
 

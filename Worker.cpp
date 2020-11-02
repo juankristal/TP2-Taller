@@ -32,23 +32,30 @@ std::map<std::string, int> generateLabelsMap(std::vector<Linea> lineas){
 	return map;
 }
 
-void connectGrafo(std::vector<Linea> lineas, std::map<std::string, int> labelsMap, Grafo &grafo){
+
+void connectLinkedLabels(Grafo &grafo, 
+							std::vector<std::string> linked_labels,
+							std::map<std::string, int> &labelsMap, 
+							int line_number) {
+
+		for (long unsigned int j = 0; j < linked_labels.size(); j++){
+			if (linked_labels[j] == "NEXT"){
+				grafo.connect(line_number, line_number + 1);
+				continue;
+			}
+			grafo.connect(line_number, labelsMap[linked_labels[j]]);
+		}	
+}
+
+void connectGrafo(std::vector<Linea> &lineas, std::map<std::string, int> &labelsMap, Grafo &grafo){
 
 	for (long unsigned int i = 0; i < lineas.size(); i++){
 
-		//std::cout << "Checking nodo " << i + 1<< "\n";
+		if (lineas[i].get_has_ret()) grafo.connect(i + 1, 0);
 
 		std::vector<std::string> linked_labels = lineas[i].get_linked_labels();
 
-		//std::cout << "It must connect to " << linked_labels.size() << " nodes based on labels\n";
-
-		for (long unsigned int j = 0; j < linked_labels.size(); j++){
-			grafo.connect(i + 1, labelsMap[linked_labels[j]]);
-		}
-
-		if (lineas[i].get_has_ret()){
-			grafo.connect(i + 1, 0);
-		}
+		connectLinkedLabels(grafo, lineas[i].get_linked_labels(), labelsMap, i + 1);
 
 		if (grafo.get_number_of_adyacents(i + 1) == 0){
 			grafo.connect(i + 1, i + 2);
