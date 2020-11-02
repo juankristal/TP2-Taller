@@ -11,6 +11,8 @@ class Grafo{
 
 		int get_status();
 
+		int get_number_of_adyacents(int nodo);
+
 		~Grafo();
 
 };
