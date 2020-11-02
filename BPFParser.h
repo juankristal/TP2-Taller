@@ -4,10 +4,12 @@
 
 class BPFParser{
 
+
 	std::ifstream lector;
 
 	public:
-		BPFParser(const char* fileName);
+
+		BPFParser(std::string fileName);
 
 		bool at_eof();
 

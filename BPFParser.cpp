@@ -45,8 +45,8 @@ bool find_ret(std::string linea){
 	return linea[0] == 'r';
 }
 
-BPFParser::BPFParser(const char* file_name){
-	this->lector.open(file_name);
+BPFParser::BPFParser(std::string fileName){
+	this->lector.open(fileName);
 }
 
 bool BPFParser::at_eof(){
@@ -60,7 +60,6 @@ Linea BPFParser::parsear_linea(){ // Posibilidad de usar split y guardar en una 
 
 	getline(this->lector, linea_leida);
 
-	std::cout << linea_leida + "\n";
 	if (linea_leida == "") return Linea("EMPTY", true, labels);
 
 	linea_leida = clean_whitespaces(linea_leida);
