@@ -3,7 +3,6 @@
 #include <mutex>
 
 class Recibidor{
-
 	private:
 		std::vector<std::string> results;
 		std::mutex m;
@@ -16,5 +15,4 @@ class Recibidor{
 		void imprimirResultado();
 
 		~Recibidor();
-
 };

@@ -8,7 +8,10 @@ class Linea{
 	bool has_ret;
 	std::vector <std::string> linked_labels;
 	public:
-		Linea(std::string label, bool has_jump, bool has_ret, std::vector <std::string> linked_labels);
+		Linea(std::string label,
+				bool has_jump,
+				bool has_ret,
+				std::vector <std::string> linked_labels);
 
 		std::vector <std::string> get_linked_labels();
 

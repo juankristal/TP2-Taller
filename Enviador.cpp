@@ -1,7 +1,8 @@
 #include "Enviador.h"
 
 Enviador::Enviador(const char ** filenames, int size){
-	for (int i = 0; i < size; i++) this->filenames.push_back(std::string(filenames[i]));
+	for (int i = 0; i < size; i++) 
+		this->filenames.push_back(std::string(filenames[i]));
 }
 
 bool Enviador::getArchivo(std::string &buffer){

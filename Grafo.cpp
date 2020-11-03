@@ -6,10 +6,15 @@
 #define LOOP -1
 #define INVALID -2
 
-int dfs(Nodo &raiz, std::set <Nodo> &visited, std::set <Nodo> &path, int current_status);
+int dfs(Nodo &raiz, 
+		std::set <Nodo> &visited,
+		std::set <Nodo> &path,
+		int current_status);
 
-int dfs(Nodo &raiz, std::set <Nodo> &visited, std::set <Nodo> &path, int current_status){
-
+int dfs(Nodo &raiz,
+		std::set <Nodo> &visited,
+		std::set <Nodo> &path,
+		int current_status){
 	visited.insert(raiz);
 	path.insert(raiz);
 	int status = current_status;

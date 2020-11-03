@@ -12,7 +12,9 @@ void ProcesadorArchivos::run(){
 	}
 }
 
-ProcesadorArchivos::ProcesadorArchivos(Enviador &enviador, Recibidor &recibidor):
+ProcesadorArchivos::ProcesadorArchivos(
+			Enviador &enviador,
+			Recibidor &recibidor):
 	recibidor(recibidor),
 	enviador(enviador){
 		this->start();

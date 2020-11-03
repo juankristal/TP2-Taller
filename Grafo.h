@@ -5,7 +5,7 @@ class Grafo{
 	int size;
 	std::vector <Nodo> nodos;
 	public:
-		Grafo(int size);
+		explicit Grafo(int size);
 
 		void connect(int nodo1, int nodo2);
 
@@ -14,5 +14,4 @@ class Grafo{
 		int get_number_of_adyacents(int nodo);
 
 		~Grafo();
-
 };

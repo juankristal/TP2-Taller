@@ -3,9 +3,8 @@
 class Nodo{
 	std::vector <Nodo*> adyacents;
 	int index;
-
 	public:
-		Nodo(int index);
+		explicit Nodo(int index);
 
 		void add_adyacent(Nodo &other);
 

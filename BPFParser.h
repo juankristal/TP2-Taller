@@ -1,15 +1,13 @@
 #include <fstream>
 #include <iostream>
 #include "Linea.h"
+#include <string>
 
 class BPFParser{
-
-
 	std::ifstream lector;
 
 	public:
-
-		BPFParser(std::string fileName);
+		explicit BPFParser(std::string fileName);
 
 		bool at_eof();
 

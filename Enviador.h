@@ -3,7 +3,6 @@
 #include <mutex>
 
 class Enviador{
-
 	private:
 		std::vector<std::string> filenames;
 		std::mutex m;
@@ -14,5 +13,4 @@ class Enviador{
 		bool getArchivo(std::string &buffer);
 
 		~Enviador();
-
 };
