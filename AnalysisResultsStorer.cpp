@@ -1,14 +1,15 @@
 #include <iostream>
 #include <algorithm>
-#include "Recibidor.h"
+#include "AnalysisResultsStorer.h"
 
 #define GOOD 0
 #define CYCLE -1
 #define UNUSED -2
 
-Recibidor::Recibidor(){}
+AnalysisResultsStorer::AnalysisResultsStorer(){}
 
-void Recibidor::storeArchivo(std::string filename, int status){
+void AnalysisResultsStorer::storeArchivo(const std::string &filename, 
+											int status){
 	std::unique_lock<std::mutex> lock(this->m);
 
 	if (status == GOOD)
@@ -22,7 +23,7 @@ void Recibidor::storeArchivo(std::string filename, int status){
 			filename + " FAIL: unused instructions detected\n");
 }
 
-void Recibidor::imprimirResultado(){
+void AnalysisResultsStorer::imprimirResultado(){
 	std::unique_lock<std::mutex> lock(this->m);
 	std::sort(this->results.begin(), this->results.end());
 	for (unsigned long int i = 0; i < this->results.size(); i++){
@@ -30,4 +31,4 @@ void Recibidor::imprimirResultado(){
 	}
 }
 
-Recibidor::~Recibidor(){}
+AnalysisResultsStorer::~AnalysisResultsStorer(){}

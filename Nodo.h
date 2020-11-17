@@ -10,8 +10,6 @@ class Nodo{
 
 		bool operator<(const Nodo& other) const;
 
-		int get_index();
-
 		std::vector <Nodo*> get_adyacents();
 
 		~Nodo();

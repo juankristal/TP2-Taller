@@ -2,17 +2,17 @@
 #include <vector>
 #include <mutex>
 
-class Recibidor{
+class AnalysisResultsStorer{
 	private:
 		std::vector<std::string> results;
 		std::mutex m;
 
 	public:
-		Recibidor();
+		AnalysisResultsStorer();
 
-		void storeArchivo(std::string filename, int status);
+		void storeArchivo(const std::string &filename, int status);
 
 		void imprimirResultado();
 
-		~Recibidor();
+		~AnalysisResultsStorer();
 };

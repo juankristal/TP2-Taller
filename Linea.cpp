@@ -3,10 +3,10 @@
 #include "Linea.h"
 #include <vector>
 
-Linea::Linea(std::string label, 
+Linea::Linea(const std::string &label, 
 				bool has_jump,
 				bool has_ret,
-				std::vector <std::string> linked_labels) :
+				const std::vector <std::string> &linked_labels):
 	label(label),
 	has_jump(has_jump),
 	has_ret(has_ret),
@@ -14,10 +14,6 @@ Linea::Linea(std::string label,
 
 std::vector <std::string> Linea::get_linked_labels(){
 	return this->linked_labels;
-}
-
-bool Linea::get_has_jump(){
-	return this->has_jump;
 }
 
 bool Linea::get_has_ret(){

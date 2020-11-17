@@ -32,19 +32,19 @@ std::map<std::string, int> generateLabelsMap(std::vector<Linea> lineas){
 
 void connectLinkedLabels(Grafo &grafo, 
 							std::vector<std::string> linked_labels,
-							std::map<std::string, int> &labelsMap, 
+							const std::map<std::string, int> &labelsMap, 
 							int line_number) {
 		for (long unsigned int j = 0; j < linked_labels.size(); j++){
 			if (linked_labels[j] == "NEXT"){
 				grafo.connect(line_number, line_number + 1);
 				continue;
 			}
-			grafo.connect(line_number, labelsMap[linked_labels[j]]);
+			grafo.connect(line_number, labelsMap.at(linked_labels[j]));
 		}	
 }
 
-void connectGrafo(std::vector<Linea> &lineas,
-					std::map<std::string, int> &labelsMap,
+void connectGrafoBPF(std::vector<Linea> &lineas,
+					const std::map<std::string, int> &labelsMap,
 					Grafo &grafo){
 	for (long unsigned int i = 0; i < lineas.size(); i++){
 		if (lineas[i].get_has_ret()) grafo.connect(i + 1, 0);
@@ -70,9 +70,9 @@ int Worker::procesarArchivo(std::string filename){
 	std::map<std::string, int> labelsMap = generateLabelsMap(lineas);
 
 	Grafo grafo = Grafo(lineas.size());
-	connectGrafo(lineas, labelsMap, grafo);
+	connectGrafoBPF(lineas, labelsMap, grafo);
 
-	return grafo.get_status();
+	return grafo.has_cycle_and_connected();
 }
 
 Worker::~Worker(){}

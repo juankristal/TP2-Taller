@@ -6,17 +6,17 @@
 void ProcesadorArchivos::run(){
 	std::string filename;
 	Worker worker; 
-	while(!this->enviador.getArchivo(filename)) {
+	while(this->file_container.getArchivo(filename)) {
 		int status = worker.procesarArchivo(filename);
-		this->recibidor.storeArchivo(filename, status);
+		this->results.storeArchivo(filename, status);
 	}
 }
 
 ProcesadorArchivos::ProcesadorArchivos(
-			Enviador &enviador,
-			Recibidor &recibidor):
-	recibidor(recibidor),
-	enviador(enviador){
+			AnalysisResultsStorer &results,
+			FileContainer &file_container):
+	file_container(file_container),
+	results(results){
 		this->start();
 	}
 

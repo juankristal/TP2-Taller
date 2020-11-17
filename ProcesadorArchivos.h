@@ -1,15 +1,16 @@
-#include "Recibidor.h"
-#include "Enviador.h"
+#include "FileContainer.h"
+#include "AnalysisResultsStorer.h"
 #include "Thread.h"
 
 class ProcesadorArchivos: public Thread {
-	Recibidor &recibidor;
-	Enviador &enviador;
+	FileContainer &file_container;
+	AnalysisResultsStorer &results;
 
 	public:
-		ProcesadorArchivos(Enviador &enviador, Recibidor &recibidor);
+		ProcesadorArchivos(AnalysisResultsStorer &results,
+							FileContainer &file_container);
 
-		virtual void run();
+		virtual void run() override;
 
 		~ProcesadorArchivos();
 };

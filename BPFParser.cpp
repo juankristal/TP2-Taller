@@ -15,15 +15,6 @@ std::string clean_whitespaces(std::string &linea){
 	return linea;
 }
 
-void remove_whitespaces(std::string &linea){
-	for (unsigned long int i = 0; i < linea.size();){
-		std::cout << linea.size();
-		if (linea[i] == ' ') linea.erase(i, i+1);
-		else 
-			i++;
-	}
-}
-
 void fill_linked_labels(std::string &linea, std::vector <std::string> &labels){
 	int amount_of_labels = 0;
 	std::string::size_type delimiter_pos = linea.find(DELIMITER);

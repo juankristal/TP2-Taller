@@ -13,10 +13,6 @@ bool Nodo::operator<(const Nodo& other) const{
 	return this->index < other.index;
 }
 
-int Nodo::get_index(){
-	return this->index;
-}
-
 std::vector <Nodo*> Nodo::get_adyacents(){
 	return this->adyacents;
 }
