@@ -23,6 +23,7 @@ void Recibidor::storeArchivo(std::string filename, int status){
 }
 
 void Recibidor::imprimirResultado(){
+	std::unique_lock<std::mutex> lock(this->m);
 	std::sort(this->results.begin(), this->results.end());
 	for (unsigned long int i = 0; i < this->results.size(); i++){
 		std::cout << this->results[i];
