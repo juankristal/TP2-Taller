@@ -13,7 +13,7 @@ class Grafo{
 		/* 	Devuelve 0 si el grafo no tiene ciclos y es conexo.
 			Devuelve 1 si el grafo tiene un ciclo.
 			Devuelve 2 si no tiene ciclos pero no es conexo. */
-		int has_cycle_and_connected();
+		int verify_status();
 
 		int get_number_of_adyacents(int nodo);
 

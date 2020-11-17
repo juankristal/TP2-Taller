@@ -72,7 +72,7 @@ int Worker::procesarArchivo(std::string filename){
 	Grafo grafo = Grafo(lineas.size());
 	connectGrafoBPF(lineas, labelsMap, grafo);
 
-	return grafo.has_cycle_and_connected();
+	return grafo.verify_status();
 }
 
 Worker::~Worker(){}

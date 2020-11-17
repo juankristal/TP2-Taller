@@ -44,7 +44,7 @@ int Grafo::get_number_of_adyacents(int nodo){
 	return this->nodos[nodo].get_adyacents().size();
 }
 
-int Grafo::has_cycle_and_connected(){
+int Grafo::verify_status(){
 	std::set <Nodo> visited;
 	std::set <Nodo> path;
 
